@@ -1,0 +1,96 @@
+<!doctype html> 
+<html> 
+<head>
+    <meta charset="utf-8" />
+    <title>Registro Scolastico</title> 
+<style>
+  body{
+    background-color: beige;
+    text-align: center;
+  }
+  
+  table {
+     width: 500px;
+     height: auto;
+     font-family: sans-serif;
+     font-size: 16px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 20px;
+     border: 1px solid blue;
+     }
+     
+</style> 
+
+</head>   
+<body>
+    <script>
+       let studenti = [];
+       let risultati = [];
+       let continua = "si";
+       
+       while (continua === "si") {
+    	   let nome = prompt("Inserisci qui il nome dello studente o scrivi FINE per terminare");
+       
+        if (nome === "FINE" || nome === "") {
+        	 continua = "no";
+        	 
+        } else {
+        	let votoStr = prompt("Inserisci il voto di " + nome + ":" );
+        	
+        	
+        	let voto = Number(votoStr);
+        	let giudizio = "";
+        		 
+        switch (voto) { 
+		    case 1: 
+		    case 2:
+		    case 3:
+		    case 4:
+		    case 5: 
+			giudizio = "Insufficiente"; 
+			   break; 
+		    case 6:
+			giudizio = "Sufficiente";
+			   break; 
+		    case 7:
+			giudizio = "Discreto";
+			   break;
+		    case 8:
+			giudizio = "Buono";
+			   break;
+		    case 9:
+			giudizio = "Ottimo";
+			   break;
+		    case 10:
+			giudizio = "Eccellente";
+			   break;
+		    default: 
+			giudizio = "Non classificato";
+			   break;
+         }
+         
+        studenti.push(nome);
+        risultati.push(giudizio);
+        
+        }
+        
+     }   
+       
+       
+       document.write("<table border= 1>");
+       document.write("<tr><th>Nome</th><th>Giudizio</th></tr>");
+       
+       for (let i = 0; i < studenti.length; i++) {
+    	   document.write("<tr>");
+           document.write("<td>" + studenti[i] + "</td>");
+           document.write("<td>" + risultati[i] + "</td>");
+           document.write("</tr>");
+       }
+
+       document.write("</table>");
+  
+   </script>
+
+</body>
+</html>
